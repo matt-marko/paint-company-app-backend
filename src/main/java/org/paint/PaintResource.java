@@ -12,7 +12,7 @@ import java.util.List;
 @Path("/paint")
 public class PaintResource {
 
-    // Method to initialize paints
+    /* Method to initialize paints */
     @PostConstruct
     void config() {
         initdb();
@@ -40,7 +40,6 @@ public class PaintResource {
         paint5.setColour("Grey");
         paint5.setStatus("available");
 
-        // Persist the paints
         UserEntity.persist(paint1);
         UserEntity.persist(paint2);
         UserEntity.persist(paint3);

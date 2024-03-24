@@ -9,7 +9,7 @@ public class PaintEntity extends PanacheEntity {
     @Column(length = 32)
     private String colour;
 
-    @Column(length = 16)
+    @Column(length = 32)
     private String status;
 
     public String getColour() {

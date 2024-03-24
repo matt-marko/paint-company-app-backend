@@ -37,7 +37,6 @@ public class UserResource {
         user4.setName("Painter");
         user4.setPermission("edit");
 
-        // Persist the users
         UserEntity.persist(user1);
         UserEntity.persist(user2);
         UserEntity.persist(user3);

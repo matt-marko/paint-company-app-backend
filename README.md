@@ -18,6 +18,8 @@ This app was developed to satisfy the requirements of _A Paint Company_. It lets
 
 - A user with admin permissions may edit the paint statuses too, and they also have access to the "Admin Settings" button which lets them set the roles for the different users.
 
+- A user with disabled permissions is not allowed to log in and view the orders.
+
 ## Project Structure
 
 The source code is contained within the `src/main/java/org/paint` folder. Within are the following classes:
