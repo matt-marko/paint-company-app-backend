@@ -48,6 +48,7 @@ public class PaintResource {
         UserEntity.persist(paint5);
     }
 
+    /* GET a list of all paints */
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public Response getPaints() {
@@ -55,6 +56,7 @@ public class PaintResource {
         return Response.ok(paints).build();
     }
 
+    /* POST a list of paints to the database */
     @POST
     @Transactional
     @Produces(MediaType.APPLICATION_JSON)
@@ -71,6 +73,7 @@ public class PaintResource {
         return Response.status(Response.Status.BAD_REQUEST).build();
     }
 
+    /* PUT an updated list of paints on the database */
     @PUT
     @Transactional
     @Produces(MediaType.APPLICATION_JSON)
@@ -88,7 +91,6 @@ public class PaintResource {
 
                 if (existingPaintColour.equals(updatedPaintColour)) {
                     existingPaint.setStatus(updatedPaint.getStatus());
-                    existingPaint.persist();
                     break;
                 }
             }

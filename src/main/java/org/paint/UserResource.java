@@ -2,7 +2,6 @@ package org.paint;
 
 import jakarta.annotation.PostConstruct;
 import jakarta.enterprise.context.ApplicationScoped;
-import jakarta.transaction.TransactionScoped;
 import jakarta.transaction.Transactional;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
@@ -14,7 +13,7 @@ import java.util.List;
 @ApplicationScoped
 public class UserResource {
 
-    // Method to initialize users
+    /* Method to initialize users */
     @PostConstruct
     void config() {
         initdb();
@@ -45,6 +44,7 @@ public class UserResource {
         UserEntity.persist(user4);
     }
 
+    /* GET a list of all users */
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public Response getUsers() {
@@ -52,6 +52,7 @@ public class UserResource {
         return Response.ok(users).build();
     }
 
+    /* GET a user specified in the path parameter */
     @GET
     @Path("/{name}")
     @Produces(MediaType.APPLICATION_JSON)
@@ -66,6 +67,7 @@ public class UserResource {
         }
     }
 
+    /* POST a list of users to the database */
     @POST
     @Transactional
     @Produces(MediaType.APPLICATION_JSON)
@@ -82,6 +84,7 @@ public class UserResource {
         return Response.status(Response.Status.BAD_REQUEST).build();
     }
 
+    /* PATCH the permission of the user specified in the path parameter */
     @PATCH
     @Path("/{name}")
     @Transactional
