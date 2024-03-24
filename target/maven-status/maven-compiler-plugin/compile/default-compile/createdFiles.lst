@@ -1,3 +1,5 @@
 org\paint\PaintEntity.class
+org\paint\UserEntity.class
 org\paint\PaintResource.class
 META-INF\panache-archive.marker
+org\paint\UserResource.class

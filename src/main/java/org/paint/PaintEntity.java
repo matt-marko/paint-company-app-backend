@@ -6,9 +6,25 @@ import jakarta.persistence.Entity;
 
 @Entity
 public class PaintEntity extends PanacheEntity {
-    @Column(length = 16)
-    public String colour;
+    @Column(length = 32)
+    private String colour;
 
     @Column(length = 16)
-    public String status;
+    private String status;
+
+    public String getColour() {
+        return this.colour;
+    }
+
+    public void setColour(String colour) {
+        this.colour = colour;
+    }
+
+    public String getStatus() {
+        return this.status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
 }

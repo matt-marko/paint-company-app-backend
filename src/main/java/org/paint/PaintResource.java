@@ -1,5 +1,6 @@
 package org.paint;
 
+import jakarta.annotation.PostConstruct;
 import jakarta.transaction.Transactional;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
@@ -11,11 +12,47 @@ import java.util.List;
 @Path("/paint")
 public class PaintResource {
 
+    // Method to initialize paints
+    @PostConstruct
+    void config() {
+        initdb();
+    }
+
+    @Transactional
+    public void initdb() {
+        PaintEntity paint1 = new PaintEntity();
+        paint1.setColour("blue");
+        paint1.setStatus("out of stock");
+
+        PaintEntity paint2 = new PaintEntity();
+        paint2.setColour("purple");
+        paint2.setStatus("running low");
+
+        PaintEntity paint3 = new PaintEntity();
+        paint3.setColour("white");
+        paint3.setStatus("running low");
+
+        PaintEntity paint4 = new PaintEntity();
+        paint4.setColour("black");
+        paint4.setStatus("available");
+
+        PaintEntity paint5 = new PaintEntity();
+        paint5.setColour("grey");
+        paint5.setStatus("available");
+
+        // Persist the paints
+        UserEntity.persist(paint1);
+        UserEntity.persist(paint2);
+        UserEntity.persist(paint3);
+        UserEntity.persist(paint4);
+        UserEntity.persist(paint5);
+    }
+
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public Response getPaints() {
-        List<PaintEntity> highScores = PaintEntity.listAll();
-        return Response.ok(highScores).build();
+        List<PaintEntity> paints = PaintEntity.listAll();
+        return Response.ok(paints).build();
     }
 
     @POST
@@ -46,11 +83,11 @@ public class PaintResource {
 
         for (PaintEntity existingPaint : existingPaints) {
             for (PaintEntity updatedPaint : updatedPaints) {
-                existingPaintColour = existingPaint.colour.toLowerCase();
-                updatedPaintColour = updatedPaint.colour.toLowerCase();
+                existingPaintColour = existingPaint.getColour().toLowerCase();
+                updatedPaintColour = updatedPaint.getColour().toLowerCase();
 
                 if (existingPaintColour.equals(updatedPaintColour)) {
-                    existingPaint.status = updatedPaint.status;
+                    existingPaint.setStatus(updatedPaint.getStatus());
                     existingPaint.persist();
                     break;
                 }
