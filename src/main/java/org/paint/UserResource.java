@@ -34,10 +34,15 @@ public class UserResource {
         user3.setName("Adam");
         user3.setPermission("admin");
 
+        UserEntity user4 = new UserEntity();
+        user3.setName("Painter");
+        user3.setPermission("view");
+
         // Persist the users
         UserEntity.persist(user1);
         UserEntity.persist(user2);
         UserEntity.persist(user3);
+        UserEntity.persist(user4);
     }
 
     @GET
