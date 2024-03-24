@@ -10,7 +10,7 @@ Link to application: https://paint-company-matt.netlify.app/
 
 ## Information
 
-This app was developed to satisfy the requirements of _A Paint Company_. It lets users view and edit the availability for each of the five colours of paint they use. When launching the application, the user can log in with different users. By default, John and Painter have view permissions, Jane has edit permissions, and Adam has Admin permissions.
+This app was developed to satisfy the requirements of _A Paint Company_. It lets users view and edit the availability for each of the five colours of paint they use. When opening the application, the user can log in with different users. By default, John has view permissions, Jane and Painter have edit permissions, and Adam has Admin permissions.
 
 - A user with view permissions may see the status of all the paints but cannot edit them.
 
