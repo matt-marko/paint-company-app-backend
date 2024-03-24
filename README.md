@@ -28,3 +28,7 @@ The source code is contained within the `src/main/java/org/paint` folder. Within
 - The `PaintResource` class contains the REST endpoints for getting and updating paints. It contains GET, POST, and PUT methods.
 - The `UserEntity` class contains the structure of the "User" object at the database level
 - The `UserResource` class contains the REST endpoints for getting and updating users and their permissions. It contains GET, POST, and PATCH methods.
+
+## DevOps Pipeline
+
+A CI pipeline exists for this project, which uses GitHub Actions. It deploys the application to Heroku. The pipeline runs when making changes to the main branch, or when ran manually. The workflow file may be found in `.github/workflows/main.yml`.
