@@ -21,23 +21,23 @@ public class PaintResource {
     @Transactional
     public void initdb() {
         PaintEntity paint1 = new PaintEntity();
-        paint1.setColour("blue");
+        paint1.setColour("Blue");
         paint1.setStatus("out of stock");
 
         PaintEntity paint2 = new PaintEntity();
-        paint2.setColour("purple");
+        paint2.setColour("Purple");
         paint2.setStatus("running low");
 
         PaintEntity paint3 = new PaintEntity();
-        paint3.setColour("white");
+        paint3.setColour("White");
         paint3.setStatus("running low");
 
         PaintEntity paint4 = new PaintEntity();
-        paint4.setColour("black");
+        paint4.setColour("Black");
         paint4.setStatus("available");
 
         PaintEntity paint5 = new PaintEntity();
-        paint5.setColour("grey");
+        paint5.setColour("Grey");
         paint5.setStatus("available");
 
         // Persist the paints
