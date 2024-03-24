@@ -5,9 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="703cbbf5-7899-4492-92a4-9d330128a6c4" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/mm/WebSocket.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/paint/UserResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/paint/UserResource.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/build-analytics-event.json" beforeDir="false" afterPath="$PROJECT_DIR$/target/build-analytics-event.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/build-metrics.json" beforeDir="false" afterPath="$PROJECT_DIR$/target/build-metrics.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,7 +51,7 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "C:/Users/mattm/Desktop/Operation Victoria/assignment/paint-company-app-backend/src/main"
+    "last_opened_file_path": "C:/Users/mattm/Desktop/Operation Victoria/assignment/paint-company-app-backend"
   }
 }]]></component>
   <component name="RecentsManager">

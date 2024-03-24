@@ -47,6 +47,20 @@ public class UserResource {
         return Response.ok(users).build();
     }
 
+    @GET
+    @Path("/{name}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getUserByUsername(@PathParam("name") String name) {
+        UserEntity user = UserEntity.find("name", name).firstResult();
+        if (user != null) {
+            return Response.ok(user).build();
+        } else {
+            return Response.status(Response.Status.NOT_FOUND)
+                    .entity("User with username " + name + " not found")
+                    .build();
+        }
+    }
+
     @POST
     @Transactional
     @Produces(MediaType.APPLICATION_JSON)
@@ -63,29 +77,21 @@ public class UserResource {
         return Response.status(Response.Status.BAD_REQUEST).build();
     }
 
-    @PUT
+    @PATCH
+    @Path("/{name}")
     @Transactional
     @Produces(MediaType.APPLICATION_JSON)
-    @Consumes(MediaType.APPLICATION_JSON)
-    public Response updateUserPermissions(List<UserEntity> updatedUsers) {
-        List<UserEntity> existingUsers = UserEntity.listAll();
+    @Consumes(MediaType.TEXT_PLAIN)
+    public Response updateUserPermission(String permission, @PathParam("name") String name) {
+        UserEntity userToUpdate = UserEntity.find("name", name).firstResult();
 
-        String existingUserName = "";
-        String updatedUserName = "";
-
-        for (UserEntity existingUser : existingUsers) {
-            for (UserEntity updatedUser : updatedUsers) {
-                existingUserName = existingUser.getName().toLowerCase();
-                updatedUserName = updatedUser.getName().toLowerCase();
-
-                if (existingUserName.equals(updatedUserName)) {
-                    existingUser.setPermission(updatedUser.getPermission());
-                    existingUser.persist();
-                    break;
-                }
-            }
+        if (userToUpdate == null) {
+            return Response.status(Response.Status.NOT_FOUND).build();
         }
 
-        return Response.ok(existingUsers).build();
+        userToUpdate.setPermission(permission);
+
+        List<UserEntity> users = UserEntity.listAll();
+        return Response.ok(users).build();
     }
 }
