@@ -2,13 +2,17 @@
   "name": "paint-company-app-backend",
   "version": "1.0.0",
   "description": "Backend component of paint-company-app assignment",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node app.js",
+    "dev": "nodemon app.js"
   },
   "author": "Matt Marko",
   "license": "ISC",
   "dependencies": {
     "pg": "^8.12.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.4"
   }
 }
