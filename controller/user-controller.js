@@ -1,4 +1,5 @@
 const userModel = require('../model/user-model');
+const httpUtil = require('../util/http-util');
 
 module.exports = {
     getAllUsers: (res) => {
@@ -9,12 +10,7 @@ module.exports = {
                 res.end(JSON.stringify(users));
             })
             .catch(error => {
-                console.error(error);
-
-                // TODO refactor to separate mehotd
-                res.statusCode = 500;
-                res.setHeader('Content-Type', 'application/json');
-                res.end(JSON.stringify({ message: 'Internal Server Error' }));
+                httpUtil.handleError(res, error);
             });
     },
 
@@ -34,11 +30,7 @@ module.exports = {
                 }
             })
             .catch(error => {
-                console.error(error);
-
-                res.statusCode = 500;
-                res.setHeader('Content-Type', 'application/json');
-                res.end(JSON.stringify({ message: 'Internal Server Error' }));
+                httpUtil.handleError(res, error);
             });
     },
 
@@ -59,11 +51,7 @@ module.exports = {
                         res.end();
                     })
                     .catch(error => {
-                        console.error(error);
-        
-                        res.statusCode = 500;
-                        res.setHeader('Content-Type', 'application/json');
-                        res.end(JSON.stringify({ message: 'Internal Server Error' }));
+                        httpUtil.handleError(res, error);
                     });
                 } else {
                     res.statusCode = 500;
@@ -90,11 +78,7 @@ module.exports = {
                     res.end();
                 })
                 .catch(error => {
-                    console.error(error);
-    
-                    res.statusCode = 500;
-                    res.setHeader('Content-Type', 'application/json');
-                    res.end(JSON.stringify({ message: 'Internal Server Error' }));
+                    httpUtil.handleError(res, error);
                 });
             });
     },
@@ -108,11 +92,7 @@ module.exports = {
                 res.end();
             })
             .catch(error => {
-                console.error(error);
-
-                res.statusCode = 500;
-                res.setHeader('Content-Type', 'application/json');
-                res.end(JSON.stringify({ message: 'Internal Server Error' }));
+                httpUtil.handleError(res, error);
             });
     },
 };

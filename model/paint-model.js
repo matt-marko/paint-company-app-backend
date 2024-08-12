@@ -1,6 +1,5 @@
 const pool = require('../database/pool');
 
-// TODO all these returns may not be necessary
 module.exports = {
     getAllPaints: () => {
         return pool.connect()
@@ -38,7 +37,7 @@ module.exports = {
         return pool.connect()
             .then(client => {
                 return client.query('INSERT INTO paints (colour, status) VALUES ($1, $2)', [colour, status])
-                    .then(response => {
+                    .then(() => {
                         client.release();
                     })
                     .catch(error => {
@@ -53,7 +52,7 @@ module.exports = {
         return pool.connect()
             .then(client => {
                 return client.query('UPDATE paints SET status = $2 WHERE colour = $1;', [colour, status])
-                    .then(response => {
+                    .then(() => {
                         client.release();
                     })
                     .catch(error => {
@@ -94,7 +93,7 @@ module.exports = {
         return pool.connect()
             .then(client => {
                 return client.query('DELETE FROM paints WHERE colour = $1', [colour])
-                    .then(response => {
+                    .then(() => {
                         client.release();
                     })
                     .catch(error => {

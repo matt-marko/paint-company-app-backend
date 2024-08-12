@@ -4,16 +4,14 @@ const { URL } = require('url');
 const userController = require('./controller/user-controller');
 const paintController = require('./controller/paint-controller');
 const urlMatcher = require('./util/url-matcher');
+const httpUtil = require('./util/http-util');
 
 const initDb = require('./database/db-init');
 
 const PORT = 8080;
 
 const server = http.createServer((req, res) => {
-    // TODO probably extract to method
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS');
-    res.setHeader('Access-Control-Allow-Headers', 'Content-type');
+    httpUtil.setHeaders(res);
 
     const url = new URL(req.url, `http://${req.headers.host}`);
     const path = decodeURIComponent(url.pathname);
@@ -68,6 +66,5 @@ const server = http.createServer((req, res) => {
 
 server.listen(PORT, () => {
     initDb();
-
     console.log(`Server is running on port ${PORT}`);
 });
