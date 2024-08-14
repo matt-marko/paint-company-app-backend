@@ -1,8 +1,7 @@
 const pg = require('pg');
 const dotenv = require('dotenv');
 
-const envFile = process.env.NODE_ENV === 'prod' ? '../.env.prod' : '../.env.dev';
-dotenv.config({ path: envFile });
+dotenv.config({ path: './.env' });
  
 const pool = new pg.Pool({
   user: process.env.DB_USER,
